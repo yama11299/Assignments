@@ -1,13 +1,13 @@
 
-				#File Class and its basic methods
+				## **File Class and its basic methods** ##
 
 For File Handling there are 3 main steps:
 	1. Open File
-	1. Read/Write/Append File
-	1. Close File
+	2. Read/Write/Append File
+	3. Close File
  
 * **File Open Operation**
-	file1 = File.open("Sample.txt")
+	`file1 = File.open("Sample.txt")`
 
 * **File Read Operation**
 	```	
