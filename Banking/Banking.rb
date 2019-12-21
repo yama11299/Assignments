@@ -43,6 +43,8 @@ while choice=="Y"
     acc_no = gets.to_i-1
     if Accounts[acc_no]
       Accounts[acc_no].deposite
+    else
+      puts "Invalid Account Number !!!"
     end
   when 3
     print "Account No: "
@@ -50,12 +52,16 @@ while choice=="Y"
     if Accounts[acc_no]
       print "Enter amount: "
       Accounts[acc_no].withdraw(gets.to_f)
+    else
+      puts "Invalid Account Number !!!"
     end
   when 4
     print "Account No: "
     acc_no = gets.to_i-1
     if Accounts[acc_no]
       Accounts[acc_no].chkbalance
+    else
+      puts "Invalid Account Number !!!"
     end
   when 5
     print "Account No: "
