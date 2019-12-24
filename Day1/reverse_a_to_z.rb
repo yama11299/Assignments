@@ -1,6 +1,6 @@
 print "A to Z in reverse order: "
 string = ' '
 for i in "A".."Z"
-	string += i+' '
+  string += i+' '
 end
 puts string.reverse

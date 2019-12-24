@@ -1,13 +1,13 @@
 print "Enter gender: "
 gender= gets.chomp
 if gender.match(/^[MmFf]${1}/)
-	puts "Valid Input"
+  puts "Valid Input"
 elsif gender.match(/Male,male,MALE/)
-	puts "Valid Input"
+  puts "Valid Input"
 elsif gender.match(/female,Female,FEMALE/)
   puts "Valid Input"
 else
-	puts "Invalid Input"
+  puts "Invalid Input"
 end
 
 print "Enter Email Id: "
