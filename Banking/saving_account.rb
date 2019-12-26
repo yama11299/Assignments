@@ -3,9 +3,11 @@ class SavingAccount < Account
   #attr_reader :minimum_balance
   @@rate_of_interest = 0.04
   @@minimum_balance = 500
-
+  @@total_savings_accounts = 0
   def initialize(name,amount)
     super("SAVINGS",name,amount)
+    @@total_savings_accounts += 1
+    @account_no = @@total_savings_accounts 
     puts "Congrats Your savings account is created with id= #{@account_no}"
   end
 

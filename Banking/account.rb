@@ -4,7 +4,7 @@ class Account
 
   def initialize(type,name,amount)
     @@total_accounts += 1
-    @account_no = @@total_accounts
+    #@account_no = @@total_accounts
     @account_type = type
     @customer_name = name
     @balance = amount   
