@@ -1,7 +1,7 @@
 load 'order_manager.rb'
 manager = OrderManager.new
 choice = "Y"
-while choice == "Y"||choice == "y"
+while choice == "Y" || choice == "y"
   puts "----Order Management System----"
   puts " 1.Take Order"
   puts " 2.Change Status"
