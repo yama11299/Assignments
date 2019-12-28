@@ -15,7 +15,7 @@ class Account
     @balance -= amount
   end
 
-  def deposite
+  def deposit
     print "Enter amount: "
     amount = Float(gets)
     @balance += amount

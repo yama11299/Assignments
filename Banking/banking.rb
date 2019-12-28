@@ -22,32 +22,26 @@ while choice == "Y" || choice == "y"
       when "SAVINGS"
         print "Enter Name: "
         name = gets.chomp.upcase
-        if name.match(/^[A-Z]+\s?[A-Z]*$/)
-          print "Enter amount for deposit: "
-          amount = Float(gets)
-          if amount >= SavingAccount.minimum_balance
-            new_account = SavingAccount.new(name,amount)
-            savings_accounts.store(new_account.account_no,new_account)
-          else
-            puts "Minimum amount should be #{SavingAccount.minimum_balance}"
-          end
+        return puts "Invalid Name !!!" unless name.match(/^[A-Z]+\s?[A-Z]*$/)
+        print "Enter amount for deposit: "
+        amount = Float(gets)
+        if amount >= SavingAccount.minimum_balance
+          new_account = SavingAccount.new(name,amount)
+          savings_accounts.store(new_account.account_no,new_account)
         else
-          puts "Invalid Name !!!"
+          puts "Minimum amount should be #{SavingAccount.minimum_balance}"
         end
       when "CURRENT"
         print "Enter Name: "
         name = gets.chomp.upcase
-        if name.match(/^[A-Z]+\s?[A-Z]*$/)
-          print "Enter amount for deposit: "
-          amount = Float(gets)
-          if amount >= CurrentAccount.minimum_balance
-            new_account = CurrentAccount.new(name,amount)
-            current_accounts.store(new_account.account_no,new_account)
-          else
-            puts "Minimum amount should be #{CurrentAccount.minimum_balance}"
-          end
+        return puts "Invalid Name !!!" unless name.match(/^[A-Z]+\s?[A-Z]*$/)
+        print "Enter amount for deposit: "
+        amount = Float(gets)
+        if amount >= CurrentAccount.minimum_balance
+          new_account = CurrentAccount.new(name,amount)
+          current_accounts.store(new_account.account_no,new_account)
         else
-          puts "Invalid Name !!!"
+          puts "Minimum amount should be #{CurrentAccount.minimum_balance}"
         end
       else
         puts "Invalid Account Type !!!"
@@ -59,19 +53,13 @@ while choice == "Y" || choice == "y"
       when "SAVINGS"
         print "Account No: "
         account_no = Integer(gets)
-        if savings_accounts.has_key?(account_no)
-          savings_accounts.fetch(account_no).deposite
-        else
-          puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless savings_accounts.has_key?(account_no)
+        savings_accounts.fetch(account_no).deposit
       when "CURRENT"
         print "Account No: "
         account_no = Integer(gets)
-        if current_accounts.has_key?(account_no)
-          current_accounts.fetch(account_no).deposite
-        else
-          puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless current_accounts.has_key?(account_no)
+        current_accounts.fetch(account_no).deposit
       else
         puts "Invalid Account Type !!!"
       end
@@ -82,21 +70,15 @@ while choice == "Y" || choice == "y"
       when "SAVINGS"
         print "Account No: "
         account_no = Integer(gets)
-        if savings_accounts.has_key?(account_no)
-          print "Enter amount: "
-          savings_accounts.fetch(account_no).withdraw(Float(gets))
-        else
-          puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless savings_accounts.has_key?(account_no)
+        print "Enter amount: "
+        savings_accounts.fetch(account_no).withdraw(Float(gets))
       when "CURRENT"
         print "Account No: "
         account_no = Integer(gets)
-        if current_accounts.has_key?(account_no)
-          print "Enter amount: "
-          current_accounts.fetch(account_no).withdraw(Float(gets))
-        else
-          puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless current_accounts.has_key?(account_no)
+        print "Enter amount: "
+        current_accounts.fetch(account_no).withdraw(Float(gets))
       else
         puts "Invalid Account Type !!!"
       end
@@ -107,19 +89,13 @@ while choice == "Y" || choice == "y"
       when "SAVINGS"
         print "Account No: "
         account_no = Integer(gets)
-        if savings_accounts.has_key?(account_no)
-          savings_accounts.fetch(account_no).check_balance
-        else
-         puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless savings_accounts.has_key?(account_no)
+        savings_accounts.fetch(account_no).check_balance
       when "CURRENT"
         print "Account No: "
         account_no = Integer(gets)
-        if current_accounts.has_key?(account_no)
-          current_accounts.fetch(account_no).check_balance
-        else
-         puts "Invalid Account Number !!!"
-        end  
+        return puts "Invalid Account Number !!!" unless current_accounts.has_key?(account_no)
+        current_accounts.fetch(account_no).check_balance  
       else
         puts "Invalid Account Type !!!"
       end
@@ -130,23 +106,17 @@ while choice == "Y" || choice == "y"
       when "SAVINGS"
         print "Account No: "
         account_no = Integer(gets)
-        if savings_accounts.has_key?(account_no)
-          print "Enter months: "
-          months = Integer(gets)
-          savings_accounts.fetch(account_no).calculate_interest(months)
-        else
-          puts "Invalid Account Number !!!"
-        end
+        return puts "Invalid Account Number !!!" unless savings_accounts.has_key?(account_no)
+        print "Enter months: "
+        months = Integer(gets)
+        savings_accounts.fetch(account_no).calculate_interest(months)
       when "CURRENT"
         print "Account No: "
         account_no = Integer(gets)
-        if current_accounts.has_key?(account_no)
-          print "Enter months: "
-          months = Integer(gets)
-          current_accounts.fetch(account_no).calculate_interest(months)
-        else
-          puts "Invalid Account Number !!!"
-        end    
+        return puts "Invalid Account Number !!!" unless current_accounts.has_key?(account_no)
+        print "Enter months: "
+        months = Integer(gets)
+        current_accounts.fetch(account_no).calculate_interest(months)    
       else
         puts "Invalid Account Type !!!"
       end

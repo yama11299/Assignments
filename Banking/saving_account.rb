@@ -15,13 +15,13 @@ class SavingAccount < Account
     @@minimum_balance
   end
 
-  def deposite
+  def deposit
     amount = super
     puts "Rs.#{amount} is credited to your savings account"
   end
 
   def withdraw(amount)
-    if @balance-amount >= @@minimum_balance
+    if @balance - amount >= @@minimum_balance
       super(amount)
       puts "Rs. #{amount} is debited from your savings account"
     else
@@ -34,8 +34,8 @@ class SavingAccount < Account
   end
 
   def calculate_interest(months)
-    amount = @@rate_of_interest*months*@balance
-    puts "Interested Amount: #{amount+@balance}"
+    amount = @@rate_of_interest * months * @balance
+    puts "Interested Amount: #{amount + @balance}"
   end
 
   def update_interest_rate

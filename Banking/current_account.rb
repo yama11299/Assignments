@@ -3,11 +3,11 @@ class CurrentAccount < Account
   #attr_reader :minimum_balance
   @@rate_of_interest = 0.02
   @@minimum_balance = 1000
-  @@total_current_account = 0
+  @@total_current_accounts = 0
   def initialize(name,amount)
     super("CURRENT",name,amount)
-    @@total_current_account += 1
-    @account_no = @@total_current_account
+    @@total_current_accounts += 1
+    @account_no = @@total_current_accounts
     puts "Congrats your current account is created with Id= #{@account_no}"
   end
   
@@ -15,7 +15,7 @@ class CurrentAccount < Account
     @@minimum_balance
   end
 
-  def deposite
+  def deposit
     amount = super
     puts "Rs. #{amount} is credited to your current account"
   end
@@ -34,8 +34,8 @@ class CurrentAccount < Account
   end
 
   def calculate_interest(months)
-    amount = @@rate_of_interest*months*@balance
-    puts "Interested Amount: #{amount+@balance}"
+    amount = @@rate_of_interest * months * @balance
+    puts "Interested Amount: #{amount + @balance}"
   end
 
   def update_interest_rate
