@@ -21,12 +21,9 @@ class SavingAccount < Account
   end
 
   def withdraw(amount)
-    if @balance - amount >= @@minimum_balance
-      super(amount)
-      puts "Rs. #{amount} is debited from your savings account"
-    else
-      puts "You can't debit given amount"
-    end
+    return puts "You can't debit given amount" unless @balance - amount >= @@minimum_balance
+    super(amount)
+    puts "Rs. #{amount} is debited from your savings account"
   end
 
   def check_balance
