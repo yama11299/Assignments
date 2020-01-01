@@ -1,24 +1,13 @@
 #program to check whether number is prime or not
-puts "Enter number: "
-number = gets.to_i
-i=2
-flag=0
-if number == 1 
-  puts "1 is neither prime nor composite number"
-  flag+=1
-elsif number == 2
-  puts "2 is prime number"
-  flag+=1
-else
-while i <= number/2
-  if number%i == 0
-    puts "#{number} is not prime number"
-    flag+=1
-    break
+begin
+  print "Enter number: "
+  number = Integer(gets)
+  return puts "1 is neither prime nor composite" if number == 1
+  if (2..number - 1).none? { |denominator| number % denominator == 0 }
+    puts "#{number} is a prime number."
+  else 
+    puts "#{number} is not a prime number."
   end
-  i+=1
-end
-end
-if (flag==0)
-  puts "#{number} is a prime number" 
+rescue ArgumentError, InputError
+  puts "Invalid Input !!!"
 end
