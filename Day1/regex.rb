@@ -1,6 +1,6 @@
 print "Enter gender: "
 gender= gets.chomp
-if gender.match(/^[MmFf]${1}/) || gender.match(/^MALE$/i) || gender.match(/^FEMALE$/i)
+if gender.match(/^[MF]${1}|^MALE$|^FEMALE$/i)
   puts "Valid Input"
 else
   puts "Invalid Input"
